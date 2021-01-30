@@ -1,0 +1,140 @@
+
+###########Görümün ayarı için###############################
+sed -i 's+<property name="ThemeName" type="string" value=.*/>+<property name="ThemeName" type="string" value="Windows-10-3.2"/>+g' /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+sed -i 's+<property name="IconThemeName" type="string" value=.*/>+<property name="IconThemeName" type="string" value="Windows-10-master"/>+g' /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+sed -i 's+<property name="FontName" type="string" value=.*/>+<property name="FontName" type="string" value="Segoe UI 10"/>+g' /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+
+###########Pencere ayarı için###############################
+sed -i 's+<property name="theme" type="string" value=.*/>+<property name="theme" type="string" value="Windows-10-3.2"/>+g' /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+###########Var olan kullanıcı ayarı için###############################
+find /home -type f -name "xsettings.xml" -print0 | xargs -0 sed -i 's+<property name="ThemeName" type="string" value=.*/>+<property name="ThemeName" type="string" value="Windows-10-3.2"/>+g'
+find /home -type f -name "xsettings.xml" -print0 | xargs -0 sed -i 's+<property name="IconThemeName" type="string" value=.*/>+<property name="IconThemeName" type="string" value="Windows-10-master"/>+g'
+find /home -type f -name "xsettings.xml" -print0 | xargs -0 sed -i 's+<property name="FontName" type="string" value=.*/>+<property name="FontName" type="string" value="Segoe UI 10"/>+g'
+
+find /home -type f -name "xfwm4.xml" -print0 | xargs -0 sed -i 's+<property name="theme" type="string" value=.*/>+<property name="theme" type="string" value="Windows-10-3.2"/>+g'
+
+###########whiskermenu ayarı için###############################
+cp -r /tmp/afad-desktop-tema/defaults.rc /etc/xdg/pardus/xfce4/whiskermenu/defaults.rc
+#sed -i 's+button-title=.*+button-title=AFAD+g' /etc/xdg/pardus/xfce4/whiskermenu/defaults.rc
+#sed -i 's+button-icon=.*+button-icon=emblem-pardus-white+g' /etc/xdg/pardus/xfce4/whiskermenu/defaults.rc
+#sed -i 's+show-button-title=.*+show-button-title=true+g' /etc/xdg/pardus/xfce4/whiskermenu/defaults.rc
+#sed -i 's+show-button-icon=.*+show-button-icon=true+g' /etc/xdg/pardus/xfce4/whiskermenu/defaults.rc
+
+###########Var olan kullanıcı ayarı için###############################
+find /home -type f -name "whiskermenu-2.rc" -print0 | xargs -0 sed -i 's+button-title=.*+button-title=AFAD+g'
+find /home -type f -name "whiskermenu-2.rc" -print0 | xargs -0 sed -i 's+button-icon=.*+button-icon=emblem-pardus-white+g'
+find /home -type f -name "whiskermenu-2.rc" -print0 | xargs -0 sed -i 's+show-button-icon=.*+show-button-icon=true+g'
+find /home -type f -name "whiskermenu-2.rc" -print0 | xargs -0 sed -i 's+show-button-title=.*+show-button-title=true+g'
+find /home -type f -name "whiskermenu-2.rc" -print0 | xargs -0 sed -i 's+show-command-restart=.*+show-command-restart=true+g'
+find /home -type f -name "whiskermenu-2.rc" -print0 | xargs -0 sed -i 's+show-command-switchuser=.*+show-command-switchuser=true+g'
+find /home -type f -name "whiskermenu-2.rc" -print0 | xargs -0 sed -i 's+show-command-shutdown=.*+show-command-shutdown=true+g'
+
+
+###########Panel ayarı için###############################
+cp /tmp/afad-desktop-tema/xfce4-panel.xml /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+cp /tmp/afad-desktop-tema/datetime-8.rc /etc/xdg/pardus/xfce4/panel/datetime-8.rc
+
+###########Var olan kullanıcı ayarı için###############################
+find /home -type f -name "xfce4-panel.xml" -exec cp /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml "{}" \;
+find /home -type f -name "datetime-8.rc" -exec cp /etc/xdg/pardus/xfce4/panel/datetime-8.rc "{}" \;
+cd /tmp/afad-desktop-tema
+tar -xzf Windows-10-master.tar.gz
+cp -r Windows-10-master /usr/share/icons/
+
+
+###################Skell içine Masaüstü ve Şablonları ayarlama #########
+chmod 777 /etc/skel/Masaüstü/*
+mkdir -p /home/paylas
+chmod 777 /home/paylas
+
+cp -r /etc/skel/Masaüstü/*.desktop /home/*/Masaüstü/
+cp -r /etc/skel/Masaüstü/*.desktop /home/*/*/Masaüstü/
+chmod 777 /home/*/Masaüstü/*.desktop
+chmod 777 /home/*/*/Masaüstü/*.desktop
+rm /home/*/Şablonlar/*.*
+rm /home/*/*/Şablonlar/*.*
+cp -r /etc/skel/Şablonlar/*.* /home/*/Şablonlar/
+cp -r /etc/skel/Şablonlar/*.* /home/*/*/Şablonlar/
+
+##########bookmark ayarı-######
+##########bookmark ayarı- yeni kullacılar için başlangıca script yazdık#########
+##########bookmark ayarı-var olan kullancılar için#####################################
+rm -r /home/*/.config/gtk-3.0/bookmarks
+rm -r /home/*/*/.config/gtk-3.0/bookmarks
+
+
+###########afad script izinleri########
+chmod 777 /opt/afad
+chmod 777 /opt/afad/afad*
+chmod 777 /etc/xdg/autostart/afad-baslangic.desktop
+
+#####Kötü dizinleri siler######
+find /home /root /etc/skel -type d -name "模板" -exec rm -r "{}" \;
+
+#############Calibre font düzeltme#################
+rm /usr/share/fonts/wps-fonts/calibri*
+
+##################Stacer Sistem Temizleme############################
+stacer_file1=$(less /usr/share/applications/stacer.desktop |grep -F Name[tr] | wc -l)
+if [ "$stacer_file1" -lt "1" ] ; then
+echo """Name[tr]=Sistem Temizleme
+""" >> /usr/share/applications/stacer.desktop
+else 
+echo ok
+fi
+find /home -type d -name ".config" -exec cp -r /etc/skel/.config/stacer "{}"/ \;
+
+##################Müzik Çalar############################
+audacious_file1=$(less /usr/share/applications/audacious.desktop |grep -F Name[tr] | wc -l)
+if [ "$audacious_file1" -lt "2" ] ; then
+echo """Name[tr]=Müzik Çalar
+""" >> /usr/share/applications/audacious.desktop
+else 
+echo ok
+fi
+find /home -type d -name ".config" -exec cp -r /etc/skel/.config/audacious "{}"/ \;
+
+###################Uzak Masaüstü İstemcisi###########
+sed -i 's+Name\[tr\]=KRDC+Name\[tr\]=Uzak Masaüstü İstemcisi+g' /usr/share/applications/org.kde.krdc.desktop
+sed -i 's+Icon=.*+Icon=preferences-desktop-remote-desktop+g' /usr/share/applications/org.kde.krdc.desktop
+
+###################Sistem Bilgileri###########
+hardinfo_file1=$(less /usr/share/applications/hardinfo.desktop |grep -F Name[tr] | wc -l)
+if [ "$hardinfo_file1" -lt "1" ] ; then
+echo """Name[tr]=Sistem Bilgileri
+""" >> /usr/share/applications/hardinfo.desktop
+else 
+echo ok
+fi
+
+########## Belge Tarayıcısı#########
+cp -r /tmp/afad-desktop-tema/simple-scan.desktop /usr/share/applications/simple-scan.desktop
+
+###################uGet###########
+uget_gtk_file1=$(less /usr/share/applications/uget-gtk.desktop |grep -F Name[tr] | wc -l)
+if [ "$uget_gtk_file1" -lt "1" ] ; then
+echo """Name[tr]=uGet - İndirme Yöneticisi
+""" >> /usr/share/applications/uget-gtk.desktop
+else 
+echo ok
+fi
+###################galculator###########
+galculator_file1=$(less /usr/share/applications/galculator.desktop |grep -F Name[tr] | wc -l)
+if [ "$galculator_file1" -lt "1" ] ; then
+echo """Name[tr]=Hesap Makinesi
+""" >> /usr/share/applications/galculator.desktop
+else 
+echo ok
+fi
+
+###############kdenlive.desktop#########
+sed -i 's+Name\[tr\]=Kdenlive+Name\[tr\]=Video Düzenleyici+g' /usr/share/applications/org.kde.kdenlive.desktop
+
+##########Kazam##########################
+sed -i 's+Name\[tr\]=Kazam+Name\[tr\]=Ekran Video Kaydı+g' /usr/share/applications/kazam.desktop
+
+##############burada terminal aç icon değişimi#########
+sed -i 's+<icon>Terminal</icon>+<icon>utilities-terminal</icon>+g' /etc/xdg/pardus/Thunar/uca.xml
+
+cd /tmp
+rm -r /tmp/afad-desktop-tema
