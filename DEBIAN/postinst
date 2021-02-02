@@ -5,13 +5,15 @@ sed -i 's+<property name="IconThemeName" type="string" value=.*/>+<property name
 sed -i 's+<property name="FontName" type="string" value=.*/>+<property name="FontName" type="string" value="Segoe UI 10"/>+g' /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 
 ###########Pencere ayarı için###############################
-sed -i 's+<property name="theme" type="string" value=.*/>+<property name="theme" type="string" value="Windows-10-3.2"/>+g' /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+cp -r /tmp/afad-desktop-tema/xfwm4.xml  /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
 ###########Var olan kullanıcı ayarı için###############################
 find /home -type f -name "xsettings.xml" -print0 | xargs -0 sed -i 's+<property name="ThemeName" type="string" value=.*/>+<property name="ThemeName" type="string" value="Windows-10-3.2"/>+g'
 find /home -type f -name "xsettings.xml" -print0 | xargs -0 sed -i 's+<property name="IconThemeName" type="string" value=.*/>+<property name="IconThemeName" type="string" value="Windows-10-master"/>+g'
 find /home -type f -name "xsettings.xml" -print0 | xargs -0 sed -i 's+<property name="FontName" type="string" value=.*/>+<property name="FontName" type="string" value="Segoe UI 10"/>+g'
 
 find /home -type f -name "xfwm4.xml" -print0 | xargs -0 sed -i 's+<property name="theme" type="string" value=.*/>+<property name="theme" type="string" value="Windows-10-3.2"/>+g'
+find /home -type f -name "xfwm4.xml" -print0 | xargs -0 sed -i 's+<property name="title_alignment" type="string" value=".*"/>+<property name="title_alignment" type="string" value="left"/>+g'
+find /home -type f -name "xfwm4.xml" -print0 | xargs -0 sed -i 's+<property name="title_font" type="string" value=.*/>+<property name="title_font" type="string" value="Segoe UI 12"/>+g'
 
 ###########whiskermenu ayarı için###############################
 cp -r /tmp/afad-desktop-tema/defaults.rc /etc/xdg/pardus/xfce4/whiskermenu/defaults.rc
