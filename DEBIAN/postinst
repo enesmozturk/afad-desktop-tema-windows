@@ -81,5 +81,14 @@ rm /usr/share/fonts/wps-fonts/calibri*
 ##############burada terminal aç icon değişimi#########
 sed -i 's+<icon>Terminal</icon>+<icon>utilities-terminal</icon>+g' /etc/xdg/pardus/Thunar/uca.xml
 
+########## Pardus hakkında İcon düzeltme #########
+cp	/usr/share/icons/pardus/24x24/apps/pardus-about.svg	/usr/share/icons/Windows-10-master/24x24/apps/pardus-about.svg
+cp	/usr/share/icons/pardus/48x48/apps/pardus-about.svg	/usr/share/icons/Windows-10-master/48x48/apps/pardus-about.svg
+cp	/usr/share/icons/pardus/22x22/apps/pardus-about.svg	/usr/share/icons/Windows-10-master/22x22/apps/pardus-about.svg
+cp	/usr/share/icons/pardus/32x32/apps/pardus-about.svg	/usr/share/icons/Windows-10-master/32x32/apps/pardus-about.svg
+cp	/usr/share/icons/pardus/16x16/apps/pardus-about.svg	/usr/share/icons/Windows-10-master/16x16/apps/pardus-about.svg
+
+
+
 cd /tmp
 rm -r /tmp/afad-desktop-tema
