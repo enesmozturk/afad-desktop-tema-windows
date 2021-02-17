@@ -50,6 +50,7 @@ mkdir -p /home/paylas
 chmod 777 /home/paylas
 
 rm -r /etc/skel/Masaüstü/libreoffice*.desktop
+rm -r /etc/skel/Masaüstü/exo-file-manager.desktop
 cp -r /etc/skel/Masaüstü/*.desktop /home/*/Masaüstü/
 cp -r /etc/skel/Masaüstü/*.desktop /home/*/*/Masaüstü/
 chmod 777 /home/*/Masaüstü/*.desktop
