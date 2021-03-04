@@ -51,14 +51,16 @@ chmod 777 /home/paylas
 
 #rm -r /etc/skel/Masaüstü/libreoffice*.desktop
 #rm -r /etc/skel/Masaüstü/exo-file-manager.desktop
-cp -r /etc/skel/Masaüstü/*.desktop /home/*/Masaüstü/
-cp -r /etc/skel/Masaüstü/*.desktop /home/*/*/Masaüstü/
+find /home -type d -name "Masaüstü" -exec cp -r /etc/skel/Masaüstü/*.desktop "{}" \;
+#cp -r /etc/skel/Masaüstü/*.desktop /home/*/Masaüstü/
+#cp -r /etc/skel/Masaüstü/*.desktop /home/*/*/Masaüstü/
 chmod 777 /home/*/Masaüstü/*.desktop
 chmod 777 /home/*/*/Masaüstü/*.desktop
 rm /home/*/Şablonlar/*.*
 rm /home/*/*/Şablonlar/*.*
-cp -r /etc/skel/Şablonlar/*.* /home/*/Şablonlar/
-cp -r /etc/skel/Şablonlar/*.* /home/*/*/Şablonlar/
+find /home -type d -name "Şablonlar" -exec cp -r /etc/skel/Şablonlar/*.* "{}" \;
+#cp -r /etc/skel/Şablonlar/*.* /home/*/Şablonlar/
+#cp -r /etc/skel/Şablonlar/*.* /home/*/*/Şablonlar/
 
 ##########bookmark ayarı-######
 ##########bookmark ayarı- yeni kullacılar için başlangıca script yazdık#########
@@ -71,12 +73,6 @@ rm -r /home/*/*/.config/gtk-3.0/bookmarks
 chmod 777 /opt/afad
 chmod 777 /opt/afad/afad*
 chmod 777 /etc/xdg/autostart/afad-baslangic.desktop
-
-#####Kötü dizinleri siler######
-find /home /root /etc/skel -type d -name "模板" -exec rm -r "{}" \;
-
-#############Calibre font düzeltme#################
-rm /usr/share/fonts/wps-fonts/calibri*
 
 
 ##############burada terminal aç icon değişimi#########
