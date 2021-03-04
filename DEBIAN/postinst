@@ -1,4 +1,4 @@
-
+#!/bin/bash
 ###########Görümün ayarı için###############################
 sed -i 's+<property name="ThemeName" type="string" value=.*/>+<property name="ThemeName" type="string" value="Windows-10-3.2"/>+g' /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 sed -i 's+<property name="IconThemeName" type="string" value=.*/>+<property name="IconThemeName" type="string" value="Windows-10-master"/>+g' /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
@@ -49,8 +49,8 @@ chmod 777 /etc/skel/Masaüstü/*
 mkdir -p /home/paylas
 chmod 777 /home/paylas
 
-rm -r /etc/skel/Masaüstü/libreoffice*.desktop
-rm -r /etc/skel/Masaüstü/exo-file-manager.desktop
+#rm -r /etc/skel/Masaüstü/libreoffice*.desktop
+#rm -r /etc/skel/Masaüstü/exo-file-manager.desktop
 cp -r /etc/skel/Masaüstü/*.desktop /home/*/Masaüstü/
 cp -r /etc/skel/Masaüstü/*.desktop /home/*/*/Masaüstü/
 chmod 777 /home/*/Masaüstü/*.desktop
