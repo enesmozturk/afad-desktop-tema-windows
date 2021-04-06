@@ -85,7 +85,4 @@ cp	/usr/share/icons/pardus/22x22/apps/pardus-about.svg	/usr/share/icons/Windows-
 cp	/usr/share/icons/pardus/32x32/apps/pardus-about.svg	/usr/share/icons/Windows-10-master/32x32/apps/pardus-about.svg
 cp	/usr/share/icons/pardus/16x16/apps/pardus-about.svg	/usr/share/icons/Windows-10-master/16x16/apps/pardus-about.svg
 
-###### Notepad######
-chmod 755 /usr/local/bin/notepad
-
 cd /tmp
