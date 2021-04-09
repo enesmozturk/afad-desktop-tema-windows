@@ -38,7 +38,13 @@
       <property name="show-frame" type="bool" value="false"/>
       <property name="size-max" type="uint" value="33"/>
     </property>
-    <property name="plugin-3" type="string" value="tasklist"/>
+        <property name="plugin-3" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="1"/>
+      <property name="flat-buttons" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="true"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="middle-click" type="uint" value="2"/>
+    </property>
     <property name="plugin-4" type="string" value="actions">
       <property name="appearance" type="uint" value="0"/>
       <property name="items" type="array">

@@ -2,7 +2,7 @@ mkdir -p $HOME/.config/gtk-3.0
 echo """file://$HOME/İndirilenler
 file://$HOME/Belgeler
 file://$HOME/Resimler
-file://$HOME/M%C3%BCzik
+file://$HOME/Müzik
 file://$HOME/Videolar
 file://$HOME/Genel
 file://$HOME/Masaüstü/Paylaşım
