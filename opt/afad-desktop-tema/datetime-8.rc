@@ -1,6 +1,6 @@
 layout=1
-date_font=Segoe UI 12
-time_font=Segoe UI 14
+date_font=Segoe UI 13
+time_font=Segoe UI 13
 date_format=%d.%m.%Y
 time_format=%H:%M
 

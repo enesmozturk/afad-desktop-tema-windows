@@ -35,10 +35,14 @@ find /home -type f -name "whiskermenu-2.rc" -print0 | xargs -0 sed -i 's+show-co
 ###########Panel ayarı için###############################
 cp /opt/afad-desktop-tema/xfce4-panel.xml /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 cp /opt/afad-desktop-tema/datetime-8.rc /etc/xdg/pardus/xfce4/panel/datetime-8.rc
+cp /opt/afad-desktop-tema/fsguard-23.rc /etc/xdg/pardus/xfce4/panel/fsguard-23.rc
+cp /opt/afad-desktop-tema/genmon-22.rc /etc/xdg/pardus/xfce4/panel/genmon-22.rc
 
 ###########Var olan kullanıcı ayarı için###############################
 find /home -type f -name "xfce4-panel.xml" -exec cp /etc/xdg/pardus/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml "{}" \;
 find /home -type f -name "datetime-8.rc" -exec cp /etc/xdg/pardus/xfce4/panel/datetime-8.rc "{}" \;
+find /home -type f -name "genmon-22.rc" -exec cp /etc/xdg/pardus/xfce4/panel/genmon-22.rc "{}" \;
+find /home -type f -name "fsguard-23.rc" -exec cp /etc/xdg/pardus/xfce4/panel/fsguard-23.rc "{}" \;
 cd /opt/afad-desktop-tema
 tar -xzf Windows-10-master.tar.gz
 cp -r Windows-10-master /usr/share/icons/
