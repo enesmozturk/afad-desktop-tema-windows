@@ -69,8 +69,8 @@ find /home -type d -name "Şablonlar" -exec cp -r /etc/skel/Şablonlar/*.* "{}" 
 ##########bookmark ayarı-######
 ##########bookmark ayarı- yeni kullacılar için başlangıca script yazdık#########
 ##########bookmark ayarı-var olan kullancılar için#####################################
-rm -r /home/*/.config/gtk-3.0/bookmarks
-rm -r /home/*/*/.config/gtk-3.0/bookmarks
+#rm -r /home/*/.config/gtk-3.0/bookmarks
+#rm -r /home/*/*/.config/gtk-3.0/bookmarks
 
 
 ###########afad script izinleri########
